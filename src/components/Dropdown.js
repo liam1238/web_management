@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import drop from '../images/dropdown.jpeg';
 import { Link } from 'react-router-dom';
 
-const Dropdown = ( { href, items = [], multiSelect = false }) => {
+const Dropdown = ( {items = [], multiSelect = false }) => {
     const [open, setOpen] = useState(false);
     const [selection, setSelection] = useState([]);
     const toggle = () => setOpen(!open);
