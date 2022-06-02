@@ -3,13 +3,13 @@ const db = require('../config/db');
 const cors = require('cors');
 
 const app = express();
-const  PORT = 3306;
+const PORT = 3306;
 app.use(cors());
 app.use(express.json())
 
 // Route to get all posts
 app.get("/api/get", (req,res)=>{
-db.query("SELECT * FROM Posts", (err,result)=>{
+db.query("SELECT * FROM `Posts`", (err,result)=>{
     if(err) { console.log(err) } 
     // console.log(result);
     res.send(result)
