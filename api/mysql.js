@@ -41,20 +41,23 @@ app.get("/api/get", (req, res) => {
 app.get("/getAllPosts", (req, res) => {
   connection.query("SELECT * FROM `Posts`", function (err, results, fields) {
     db_posts = results;
-    console.log("all the posts: ", db_posts); // results contains rows returned by server
+     console.log("all the posts: ", db_posts); // results contains rows returned by server
     //console.log(fields); // fields contains extra meta data about results, if available
     res.send(db_posts);
   });
 });
 
-// // get all users
-// connection.query(
-//   'SELECT * FROM `Users`',
-//   function(err, results) {
-//     db_users = results;
-//     console.log("all users: ", db_users);
-//   }
-// );
+// get all users
+app.get("/getAllUsers", (req, res) => {
+  connection.query("SELECT * FROM `Users`", function (err, results, fields) {
+    db_users = results;
+     console.log("all the users: ", db_users); // results contains rows returned by server
+    //console.log(fields); // fields contains extra meta data about results, if available
+    res.send(db_users);
+  });
+});
+
+
 
 app.listen(PORT, () => {
   console.log(`Server is running on ${PORT}`);
